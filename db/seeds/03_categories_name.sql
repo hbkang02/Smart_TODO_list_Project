@@ -1,4 +1,4 @@
 INSERT INTO categories (category_name) VALUES ('Read');
-INSERT INTO categories (category_name) VALUES ('buy');
-INSERT INTO categories (category_name) VALUES ('eat');
-INSERT INTO categories (category_name) VALUES ('watch');
+INSERT INTO categories (category_name) VALUES ('Buy');
+INSERT INTO categories (category_name) VALUES ('Eat');
+INSERT INTO categories (category_name) VALUES ('Watch');

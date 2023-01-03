@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  height: 125px;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #000000;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  width: 100%;
+  background: none;
+  color: #ffffff;
+  padding: 1.5em;
+  font-size: 30px;
+  z-index: 1;
+}
+
+.links {
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
+}

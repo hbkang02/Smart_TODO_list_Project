@@ -51,6 +51,21 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+const users = {}
+
+app.post("/register", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const id = 6;
+  if (email === '' || req.body.password === '') {
+    res.sendStatus(400);
+  } else {
+    users[id] = { id, email, password };
+    console.log(users)
+    res.redirect("/");
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

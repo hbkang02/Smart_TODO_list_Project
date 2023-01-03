@@ -1,11 +1,11 @@
 header {
   display: flex;
-  height: 150px;
+  height: 125px;
   width: 100vw;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(118, 144, 216, 0.906);
+  background-color: #000000;
 }
 
 nav {
@@ -25,4 +25,8 @@ nav {
 .links {
   font-size: 20px;
   justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
 }

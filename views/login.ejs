@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <!-- <link rel="stylesheet" href="/styles/header.css" /> -->
+  <link rel="stylesheet" href="/styles/login.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+  <!-- <%- include('partials/_header') %> -->
+
+    <main class="container">
+
+      <h1 class="loginlabel">Sign in</h1>
+      <br>
+
+
+              <form method="POST" action="/login" class="login_form">
+                <div>
+                  <label for="email" class="menulabels">Email:</label>
+                  <br>
+                  <input type="email" name="email" class="logininput">
+                </div>
+                <br>
+                <div>
+                  <label for="password" class="menulabels">Password:</label>
+                  <br>
+                  <input type="password" name="password" class="logininput">
+                </div>
+                <br>
+                <button type="submit" class="loginbutton">Login</button>
+              </form>
+
+              <p class="menulabels">
+                Don't have an account? <a href="/register">Click Here</a>
+              </p>
+
+    </main>
+
+</body>
+
+</html>

@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/add_todo.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -21,7 +22,13 @@
 <body>
   <%- include('partials/_header') %>
 
-  <form action=""></form>
+  <div class="add_todo">
+    <form>
+      <input id="itemInput" class="form-control todo-item" placeholder="Add a ToDo!" name="item">
+      <button id="itemSubmit" class="btn btn-secondary input-group-addon add-btn">Add</button>
+    </form>
+  </div>
+
 
 </body>
 

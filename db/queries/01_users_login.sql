@@ -1,3 +1,3 @@
 SELECT id, name, email, password
 FROM users
-WHERE 
+WHERE users.id = 'aliceK@gmail.com';

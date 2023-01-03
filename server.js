@@ -2,13 +2,14 @@
 require('dotenv').config();
 
 // Web server config
+const PORT = process.env.PORT || 8080;
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-
-const PORT = process.env.PORT || 8080;
+const bodyParser = require("body-parser");
+const cookieSession = require('cookie-session');
+const sass = require('sass');
 const app = express();
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT

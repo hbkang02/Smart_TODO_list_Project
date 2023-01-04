@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "pg": "^8.5.0",
+    "request-promise": "^4.2.6",
     "sass": "^1.57.1"
   },
   "devDependencies": {

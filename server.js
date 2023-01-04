@@ -26,14 +26,18 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession ({
+  name: 'session',
+  keys: ['password1']
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const loginApiRoutes = require('./routes/login-api');
+const todosApiRoutes = require('./routes/todos');
 const usersRoutes = require('./routes/users');
-const login = require('./routes/login');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -41,9 +45,9 @@ const login = require('./routes/login');
 
 app.use('/api/users-api', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
+app.use('/todo', todosApiRoutes);
 app.use('/login', loginApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/login', login);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

@@ -2,6 +2,7 @@
 registration routing
  */
 
+const { addUser } = require('../database')
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
@@ -13,14 +14,24 @@ router.get('/', (req, res) => {
 router.post("/", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  const id = 6;
+  const name = req.body.name;
   if (email === '' || req.body.password === '') {
     res.sendStatus(400);
   } else {
-    users[id] = { id, email, password };
-    console.log(users)
-    res.redirect("/");
+    let user = { name, email, password };
+    addUser(user)
+      .then(user => {
+        console.log(user)
+        if (!user) {
+          res.send({ error: "error" });
+          return;
+        }
+        req.session.userId = user.id;
+        res.send("🤗");
+      })
+      .catch(e => res.send(e));
   }
+  res.redirect("/");
 });
 
 module.exports = router;

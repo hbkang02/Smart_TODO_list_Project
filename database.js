@@ -1,13 +1,8 @@
-const { Pool } = require('pg');
-const pool = new Pool({
-  host: 'localhost',
-  user: 'lhlmidterm',
-  password: '123',
-  database: 'midterm'
-});
+const db = require('./db/connection');
+
 
 const getUserWithEmail = function (email) {
-  return pool
+  return db
     .query(`SELECT * FROM users`)
     .then((result) => {
       return result.rows[0];
@@ -19,7 +14,7 @@ const getUserWithEmail = function (email) {
 exports.getUserWithEmail = getUserWithEmail;
 
 const getUserWithId = function (id) {
-  return pool
+  return db
     .query(`
     SELECT * FROM users WHERE id = $1`, [id])
     .then((result) => {
@@ -31,4 +26,45 @@ const getUserWithId = function (id) {
 }
 exports.getUserWithId = getUserWithId;
 
+//may need join********************
+const addTodo = function (todo) {
+  db.query(`
+  INSERT INTO todos (
+    category_id,
+    user_id,
+    todo_name,
+  VALUES (
+    '$1'
+    '$2'
+    '$3'
+  ))`, [
+    todo.category_id,
+    todo.user_id,
+    todo.todo_name])
+  .catch((err) => {
+    console.log("Catch: ", err.message);
+  });
+}
 
+exports.addTodo = addTodo;
+
+
+const addUser = function (user) {
+  console.log('hit', user)
+  console.log(db)
+  const name = user.name
+  const password = user.password
+  const email = user.email
+  return db
+    //.query(`INSERT INTO users (name, password, email) VALUES ($1, $2, $3) RETURNING *;`, [name, password, email])
+    .query(`SELECT * from users`)
+    .then((result) => {
+      console.log('users', result.rows[0]);
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log('error hit')
+      console.log(err.message);
+    });
+};
+exports.addUser = addUser;

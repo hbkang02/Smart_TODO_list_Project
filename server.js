@@ -33,7 +33,7 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const login = require('./routes/login');
-const registration = require('./routes/registration')
+const register = require('./routes/register')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -41,7 +41,7 @@ const registration = require('./routes/registration')
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/registration', registration);
+app.use('/register', register);
 app.use('/login', login);
 // Note: mount other resources here, using the same pattern above
 
@@ -51,21 +51,6 @@ app.use('/login', login);
 
 app.get('/', (req, res) => {
   res.render('index');
-});
-
-const users = {}
-
-app.post("/register", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const id = 6;
-  if (email === '' || req.body.password === '') {
-    res.sendStatus(400);
-  } else {
-    users[id] = { id, email, password };
-    console.log(users)
-    res.redirect("/");
-  }
 });
 
 app.listen(PORT, () => {

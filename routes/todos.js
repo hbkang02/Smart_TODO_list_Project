@@ -19,7 +19,34 @@ const getUsersToDos = function (userId) {
 };
 
 router.get("/", (req, res) => {
+<<<<<<< HEAD
   const userId = req.session.userId;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c28b77c (Add more layout, move login form to header)
+=======
+>>>>>>> 934b179 (Change some styling)
+  const userId = req.session.userId;
+=======
+  const userId = req.session.user_id;
+>>>>>>> 765eea4 (Add more layout, move login form to header)
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  const userId = req.session.userId;
+>>>>>>> 9616b93 (Change some styling)
+=======
+>>>>>>> c28b77c (Add more layout, move login form to header)
+=======
+=======
+  const userId = req.session.userId;
+>>>>>>> 9616b93 (Change some styling)
+>>>>>>> 934b179 (Change some styling)
+>>>>>>> bc0490f (Change some styling)
   if (!userId) {
     res.send('Not logged in!');
     return;

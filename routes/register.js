@@ -8,7 +8,7 @@ const router = express.Router();
 const db = require('../db/connection');
 const cookieSession = require('cookie-session');
 const bcrypt = require('bcrypt');
-
+const app = express();
 app.use(cookieSession({
   name: 'session',
   keys: ['password1']
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.post("/", (req, res) => {
   const email = req.body.email;
-  const password = bcrypt.hashSync(req.body.password);
+  const password = bcrypt.hashSync(req.body.password, 12);
   const name = req.body.name;
   if (email === '' || req.body.password === '') {
     res.sendStatus(400);
@@ -29,12 +29,11 @@ router.post("/", (req, res) => {
     let user = { name, email, password };
     addUser(user)
       .then(user => {
-        console.log(user)
         if (!user) {
           res.send({ error: "error" });
           return;
         }
-        req.session.userName = user.name;
+        req.session.userId = user.name;
         res.send("🤗");
       })
       .catch(e => res.send(e));

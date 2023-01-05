@@ -23,33 +23,33 @@
 <body>
   <!-- <%- include('partials/_header') %> -->
 
-    <main class="container">
+  <main class="container">
 
-      <h1 class="loginlabel">Sign in</h1>
+    <h1 class="loginlabel">Sign in</h1>
+    <br>
+
+
+    <form method="POST" action="/login" class="login_form">
+      <div>
+        <label for="email" class="menulabels">Email:</label>
+        <br>
+        <input type="email" name="email" class="logininput">
+      </div>
       <br>
+      <div>
+        <label for="password" class="menulabels">Password:</label>
+        <br>
+        <input type="password" name="password" class="logininput">
+      </div>
+      <br>
+      <button type="submit" class="loginbutton">Login</button>
+    </form>
 
+    <p class="menulabels">
+      Don't have an account? <a href="/register">Click Here</a>
+    </p>
 
-              <form method="POST" action="/login" class="login_form">
-                <div>
-                  <label for="email" class="menulabels">Email:</label>
-                  <br>
-                  <input type="email" name="email" class="logininput">
-                </div>
-                <br>
-                <div>
-                  <label for="password" class="menulabels">Password:</label>
-                  <br>
-                  <input type="password" name="password" class="logininput">
-                </div>
-                <br>
-                <button type="submit" class="loginbutton">Login</button>
-              </form>
-
-              <p class="menulabels">
-                Don't have an account? <a href="/register">Click Here</a>
-              </p>
-
-    </main>
+  </main>
 
 </body>
 

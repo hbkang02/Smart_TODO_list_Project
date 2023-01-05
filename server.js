@@ -11,7 +11,7 @@ const cookieSession = require('cookie-session');
 const sass = require('sass');
 const app = express();
 app.set('view engine', 'ejs');
-const bcrypt = require('bcrypt');
+
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -28,23 +28,30 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['password1']
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
+const loginApiRoutes = require('./routes/login-api');
+const todosApiRoutes = require('./routes/todos');
 const usersRoutes = require('./routes/users');
-const login = require('./routes/login');
 const register = require('./routes/register')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
+
+app.use('/api/users-api', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
+app.use('/todo', todosApiRoutes);
+app.use('/login', loginApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/register', register);
-app.use('/login', login);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

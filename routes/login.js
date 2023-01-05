@@ -34,14 +34,14 @@ router.post('/', (req, res) => {
   const { email, password } = req.body;
   login(email, password)
     .then(user => {
-      if (!user) {
-        res.send({ error: "error no user found" });
+      if (!user || !password) {
+        res.status(400).send("You need to provide email and password to login. Please <a href='/login'>Login</a>");
         return;
       }
+      if()
       console.log("found user: " + user.name)
       req.session.userId = user.id;
       console.log("session: " + req.session.userId);
-      // res.send({user: {name: user.name, email: user.email, id: user.id}}); // make redirection to '/'
       res.redirect('/');
       return;
     })

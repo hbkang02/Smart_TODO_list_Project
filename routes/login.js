@@ -41,7 +41,8 @@ router.post('/', (req, res) => {
       console.log("found user: " + user.name)
       req.session.userId = user.id;
       console.log("session: " + req.session.userId);
-      res.send({user: {name: user.name, email: user.email, id: user.id}}); // make redirection to '/'
+      // res.send({user: {name: user.name, email: user.email, id: user.id}}); // make redirection to '/'
+      res.redirect('/');
       return;
     })
     .catch(e => res.send(e));

@@ -14,4 +14,3 @@ VALUES (
   now(),
   NULL
 );
-

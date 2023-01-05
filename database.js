@@ -3,7 +3,7 @@ const db = require('./db/connection');
 
 const getUserWithEmail = function (email) {
   return db
-    .query(`SELECT * FROM users`)
+    .query(`SELECT * FROM users WHERE email = $1`, [email])
     .then((result) => {
       return result.rows[0];
     })
@@ -26,6 +26,7 @@ const getUserWithId = function (id) {
 }
 exports.getUserWithId = getUserWithId;
 
+//may need join********************
 const addTodo = function (todo) {
   db.query(`
   INSERT INTO todos (

@@ -5,15 +5,8 @@ registration routing
 const { addUser } = require('../database')
 const express = require('express');
 const router = express.Router();
-const db = require('../db/connection');
-const cookieSession = require('cookie-session');
 const bcrypt = require('bcrypt');
-const app = express();
-app.use(cookieSession({
-  name: 'session',
-  keys: ['password1']
-}));
-
+const { getUserWithEmail } = require('../database')
 
 router.get('/', (req, res) => {
   res.render('registration');
@@ -26,19 +19,27 @@ router.post("/", (req, res) => {
   if (email === '' || req.body.password === '') {
     res.sendStatus(400);
   } else {
-    let user = { name, email, password };
-    req.session.userId = user.id;
-    addUser(user)
-      .then(user => {
-        if (!user) {
-          res.send({ error: "error" });
-          return;
+    getUserWithEmail(email)
+      .then((user) => {
+        if (user) {
+          res.redirect("/");
+        } else {
+          let user = { name, email, password };
+          req.session.userId = user.id;
+          addUser(user)
+            .then(user => {
+              if (!user) {
+                res.send({ error: "error" });
+                return;
+              }
+              res.send("🤗");
+            })
+            .catch(e => res.send(e));
         }
-        res.send("🤗");
       })
-      .catch(e => res.send(e));
+
   }
-  res.redirect("/");
+
 });
 
 module.exports = router;

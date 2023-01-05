@@ -20,16 +20,67 @@
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <header>
+    <nav>
+      <span>Smart TODO List</span>
+      <div class="login-container">
+        <form action="/login">
+          <input type="text" placeholder="Username" name="username">
+          <input type="text" placeholder="Password" name="psw">
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+  </header>
 
-  <div class="add_todo">
-    <form>
+
+  <!-- add item form -->
+  <div class="add-item">
+    <span class="input-group p-2">
       <input id="itemInput" class="form-control todo-item" placeholder="Add a ToDo!" name="item">
-      <button id="itemSubmit" class="btn btn-secondary input-group-addon add-btn">Add</button>
-    </form>
+      <button id="itemSubmit" class="btn btn-primary fas fa-plus">Add</button>
+    </span>
   </div>
 
+<!-- list cards -->
+<div class="list-container">
+  <div class="card-deck categories">
+
+    <!-- to read list column -->
+    <div class="card read-list">
+      <h5 class="card-header" id="read-header">To Read</h5>
+      <div class="card-block" id="read-block">
+        <ul class="list-group list-group-flush" id="read-items">
+        </ul>
+      </div>
+    </div>
+
+    <!-- to watch list column -->
+    <div class="card watch-list">
+      <h5 class="card-header" id="watch-header">To Watch</h5>
+      <div class="card-block" id="watch-block">
+        <ul class="list-group list-group-flush" id="watch-items">
+        </ul>
+      </div>
+    </div>
+
+    <!-- to buy list column -->
+    <div class="card buy-list">
+      <h5 class="card-header" id="buy-header">To Buy</h5>
+      <div class="card-block" id="buy-block">
+        <ul class="list-group list-group-flush" id="buy-items">
+        </ul>
+      </div>
+    </div>
+
+    <!-- to eat list column -->
+    <div class="card eat-list">
+      <h5 class="card-header" id="eat-header">To Eat</h5>
+      <div class="card-block" id="eat-block">
+        <ul class="list-group list-group-flush" id="eat-items">
+        </ul>
+      </div>
+    </div>
 
 </body>
-
 </html>

@@ -1,5 +1,12 @@
-.add_todo {
+.add-item {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  width: 100%;
   padding-top: 30px;
-  width: 300px;
+  padding-bottom: 30px;
+}
+.input-group {
+  height: 10px;
 }

@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
                 res.send({ error: "error" });
                 return;
               }
-              res.send("🤗");
+              res.redirect("/");
             })
             .catch(e => res.send(e));
         }

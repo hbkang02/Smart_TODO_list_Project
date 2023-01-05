@@ -29,7 +29,7 @@ const fetchCategory = (text) => {
         }
       }
 
-      // {className: "read"}
+      // result ex: {className: "read"}
       return result;
     })
 

@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 
+
 function login(email, password) {
   return getUserWithEmail(email)
     .then(user => {
@@ -16,7 +17,6 @@ function login(email, password) {
       if (password === user.password) {
         return user;
       }
-
       return null;
     })
     .catch(e => {
@@ -35,10 +35,9 @@ router.post('/', (req, res) => {
   login(email, password)
     .then(user => {
       if (!user || !password) {
-        res.status(400).send("You need to provide email and password to login. Please <a href='/login'>Login</a>");
+        res.status(400).send("You need to provide an email and password to login. Please <a href='/login'>Login</a>");
         return;
       }
-      if()
       console.log("found user: " + user.name)
       req.session.userId = user.id;
       console.log("session: " + req.session.userId);

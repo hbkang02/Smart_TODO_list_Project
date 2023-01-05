@@ -19,7 +19,7 @@ const getUsersToDos = function (userId) {
 };
 
 router.get("/", (req, res) => {
-  const userId = req.session.user_id;
+  const userId = req.session.userIdid;
   if (!userId) {
     res.send('Not logged in!');
     return;
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
   if (!userId) {
     res.redirect('/');
     // res.send('Not logged in!!');
-    return; //add redirect later
+    return;
   }
   if (!req.body.category_id) {
     fetchCategory(req.body.todo_name)

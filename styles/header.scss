@@ -5,7 +5,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #000000;
+  background-color: black;
 }
 
 nav {
@@ -18,32 +18,40 @@ nav {
   background: none;
   color: #ffffff;
   padding: 1.5em;
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
 }
 
-nav span {
-  font-size: 30px;
-}
-
-
-/* Style the input field inside the navbar */
-.nav input {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-  width: 100px;
+.logo {
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 20px;
+  color: white;
+
+  i {
+    font-size: 30;
+  }
 }
 
-.nav .login-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 15px;
-  border: none;
-  cursor: pointer;
+button {
+  font-size: 20px;
+  color: white;
+  border: black;
+  background-color: black;
 }
-
-

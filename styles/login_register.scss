@@ -1,0 +1,58 @@
+// Styling for main container
+main.container {
+    background: rgb(96, 97, 105);
+    padding-bottom: 45px;
+    padding-top: 20px;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    width: 80%;
+    max-width: 600px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    color: black;
+
+    h1 {
+      color: black;
+      font-size: 30px;
+    }
+
+    button {
+      color: black;
+      background: rgb(96, 97, 105);
+      border: black;
+    }
+
+    button:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    a:active {
+      text-decoration: underline;
+    }
+
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

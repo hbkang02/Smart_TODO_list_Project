@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-<<<<<<< HEAD
 
 const db = require('../db/connection');
 const { fetchCategory } = require('./api_helper/api_category');
@@ -32,7 +31,6 @@ router.get("/", (req, res) => {
 
 });
 
-// This adds todos
 router.post("/", (req, res) => {
   const userId = req.session.userId;
   console.log("session2: " + req.session.userId);
@@ -68,5 +66,3 @@ router.post("/", (req, res) => {
 
 
 module.exports = router;
-=======
->>>>>>> de5e844 (Add todos.js)

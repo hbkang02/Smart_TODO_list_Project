@@ -23,22 +23,30 @@
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <header>
+    <nav>
+      <span>Smart TODO List</span>
+      <div class="login-container">
+        <form action="/login">
+          <input type="text" placeholder="Username" name="username">
+          <input type="text" placeholder="Password" name="psw">
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+  </header>
 
   <!-- add item form -->
   <div class="add-item">
-    <h2>Add a new ToDo!</h2>
-    <form class="item" action="/items/" method="POST">
-      <div class="form-group">
-        <input autocomplete='off'  class="form-control" type="text" name="item">
-        <button type="submit" class="btn btn-primary fas fa-plus"></button>
-      </div>
-    </form>
+    <span class="input-group p-2">
+      <input id="itemInput" class="form-control todo-item" placeholder="Add a ToDo!" name="item">
+      <button id="itemSubmit" class="btn btn-primary fas fa-plus">Add</button>
+    </span>
   </div>
 
 <!-- list cards -->
 <div class="list-container">
-  <!-- <div class="card-deck categories"> -->
+  <div class="card-deck categories">
 
     <!-- to read list column -->
     <div class="card read-list">
@@ -74,7 +82,7 @@
         <ul class="list-group list-group-flush" id="eat-items">
         </ul>
       </div>
-    <!-- </div> -->
+    </div>
 
 </body>
 </html>

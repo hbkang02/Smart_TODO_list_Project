@@ -27,13 +27,13 @@ router.post("/", (req, res) => {
     res.sendStatus(400);
   } else {
     let user = { name, email, password };
+    req.session.userId = user.id;
     addUser(user)
       .then(user => {
         if (!user) {
           res.send({ error: "error" });
           return;
         }
-        req.session.userId = user.name;
         res.send("🤗");
       })
       .catch(e => res.send(e));

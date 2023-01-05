@@ -26,7 +26,6 @@ const getUserWithId = function (id) {
 }
 exports.getUserWithId = getUserWithId;
 
-//may need join********************
 const addTodo = function (todo) {
   db.query(`
   INSERT INTO todos (

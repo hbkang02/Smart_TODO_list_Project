@@ -10,7 +10,7 @@ const fetchCategory = (text) => {
     'uri': `https://api.uclassify.com/v1/${username}/${classifierName}/classify`,
     'headers': {
       'Content-Type': 'application/json',
-      'Authorization': `Token CWELq0BOEcrS`, //your key
+      'Authorization': `Token ${process.env.DB_UCLASSIFY_READ_KEY}`, //your key
     },
     'body': {
       'texts': [text],

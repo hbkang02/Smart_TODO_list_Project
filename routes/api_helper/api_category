@@ -1,0 +1,38 @@
+const request = require('request-promise');
+
+
+const fetchCategory = (text) => {
+  const username = 'hbk';
+  const classifierName = 'lhlmidterm';
+
+  const uClassifyAcc = {
+    'method': 'POST',
+    'uri': `https://api.uclassify.com/v1/${username}/${classifierName}/classify`,
+    'headers': {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${process.env.DB_UCLASSIFY_READ_KEY}`, //your key
+    },
+    'body': {
+      'texts': [text],
+    },
+    'json': true,
+  };
+
+  return request(uClassifyAcc)
+    .then((res) => {
+      let result = {};
+      let highp = 0;
+      for (let cat in res.classification) {
+        if (highp < cat.p) {
+          result.className = cat.className;
+          highp = cat.p;
+        }
+      }
+
+      // {className: "read"}
+      return result;
+    })
+
+}
+module.exports = { fetchCategory };
+

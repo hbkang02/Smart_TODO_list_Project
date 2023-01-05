@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Users</title>
+  <title>register</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,25 +12,34 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <!-- <link rel="stylesheet" href="/styles/header.css" /> -->
+  <link rel="stylesheet" href="/styles/login.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
 </head>
 
 <body>
-  <h3>Register</h3>
-  <form class="form-inline" action="/register" method="POST">
-    <div class="form-group mb-2">
-      <label for="email">email</label>
-      <input class="form-control" type="email" name="email">
-      <label for="name">name</label>
-      <input class="form-control" type="name" name="name">
-      <label for="password">password</label>
-      <input class="form-control" type="password" name="password">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
-  <ul id="users"></ul>
+  <!-- <%- include('partials/_header') %> -->
+
+  <main class="container">
+
+    <h1 class="loginlabel">Create an account</h1>
+    <br>
+    <form class="form-inline" action="/register" method="POST">
+      <div class="form-group mb-2">
+        <label for="email">email</label>
+        <input class="form-control" type="email" name="email">
+        <label for="name">name</label>
+        <input class="form-control" type="name" name="name">
+        <label for="password">password</label>
+        <input class="form-control" type="password" name="password">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </main>
+
 </body>
 
 </html>

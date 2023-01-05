@@ -6,14 +6,22 @@ const { addUser } = require('../database')
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
-const users = {}
+const cookieSession = require('cookie-session');
+const bcrypt = require('bcrypt');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['password1']
+}));
+
+
 router.get('/', (req, res) => {
   res.render('registration');
 });
 
 router.post("/", (req, res) => {
   const email = req.body.email;
-  const password = req.body.password;
+  const password = bcrypt.hashSync(req.body.password);
   const name = req.body.name;
   if (email === '' || req.body.password === '') {
     res.sendStatus(400);
@@ -26,7 +34,7 @@ router.post("/", (req, res) => {
           res.send({ error: "error" });
           return;
         }
-        req.session.userId = user.id;
+        req.session.userName = user.name;
         res.send("🤗");
       })
       .catch(e => res.send(e));

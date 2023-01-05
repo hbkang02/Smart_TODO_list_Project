@@ -11,6 +11,8 @@ const cookieSession = require('cookie-session');
 const sass = require('sass');
 const app = express();
 app.set('view engine', 'ejs');
+const bcrypt = require('bcrypt');
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

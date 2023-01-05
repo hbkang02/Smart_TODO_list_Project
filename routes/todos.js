@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../db/connection');
-const { fetchCategory } = require('./api_helper/api_category');
+const { fetchCategory } = require('./api_helper/api_category.js');
 const { addTodo } = require('../database');
 const { Categories } = require('../configs');
 const { jar } = require('request-promise-native');

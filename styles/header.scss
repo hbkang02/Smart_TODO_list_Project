@@ -18,10 +18,9 @@ nav {
   background: none;
   color: #ffffff;
   padding: 1.5em;
-  z-index: 1;
 }
 
-span {
+nav span {
   font-size: 30px;
 }
 
@@ -47,6 +46,4 @@ span {
   cursor: pointer;
 }
 
-.login-container {
-  float: right;
-}
+

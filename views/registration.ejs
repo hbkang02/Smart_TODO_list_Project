@@ -13,8 +13,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
-  <link rel="stylesheet" href="/styles/login.css">
-  <link rel="stylesheet" href="/styles/register.css">
+  <link rel="stylesheet" href="/styles/login_register.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -30,17 +29,11 @@
     <br>
 
 
-    <form method="POST" action="/login" class="login_form">
+    <form method="POST" action="/register" class="login_form">
       <div>
-        <label for="registerFname" class="menulabels">First name:</label>
+        <label for="register-name" class="menulabels">Your Name:</label>
         <br>
-        <input type="text" name="first-name">
-      </div>
-      <br>
-      <div>
-        <label for="registerLname" class="menulabels">Last name:</label>
-        <br>
-        <input type="text" name="last-name">
+        <input type="text" name="name">
       </div>
       <br>
       <div>

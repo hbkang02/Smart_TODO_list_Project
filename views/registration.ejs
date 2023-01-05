@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Login</title>
+  <title>register</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,30 +25,19 @@
 
   <main class="container">
 
-    <h1 class="loginlabel">Sign in</h1>
+    <h1 class="loginlabel">Create an account</h1>
     <br>
-
-
-    <form method="POST" action="/login" class="login_form">
-      <div>
-        <label for="email" class="menulabels">Email:</label>
-        <br>
-        <input type="email" name="email" class="logininput">
+    <form class="form-inline" action="/register" method="POST">
+      <div class="form-group mb-2">
+        <label for="email">email</label>
+        <input class="form-control" type="email" name="email">
+        <label for="name">name</label>
+        <input class="form-control" type="name" name="name">
+        <label for="password">password</label>
+        <input class="form-control" type="password" name="password">
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-      <br>
-      <div>
-        <label for="password" class="menulabels">Password:</label>
-        <br>
-        <input type="password" name="password" class="logininput">
-      </div>
-      <br>
-      <button type="submit" class="loginbutton">Login</button>
     </form>
-
-    <p class="menulabels">
-      Don't have an account? <a href="/register">Click Here</a>
-    </p>
-
   </main>
 
 </body>

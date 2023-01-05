@@ -5,7 +5,7 @@ VALUES (
   'Read Harry Potter',
   now(),
   NULL
-)
+);
 INSERT INTO todos (category_id, user_id, todo_name, created_date, completed_date)
 VALUES (
   2,
@@ -13,5 +13,5 @@ VALUES (
   'Buy Apple watch',
   now(),
   NULL
-)
+);
 

@@ -12,6 +12,8 @@ const sass = require('sass');
 const app = express();
 app.set('view engine', 'ejs');
 
+
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -26,7 +28,7 @@ app.use(
   })
 );
 app.use(express.static('public'));
-app.use(cookieSession ({
+app.use(cookieSession({
   name: 'session',
   keys: ['password1']
 }));
@@ -38,6 +40,7 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const loginApiRoutes = require('./routes/login');
 const todosApiRoutes = require('./routes/todos');
 const usersRoutes = require('./routes/users');
+const register = require('./routes/register')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -48,6 +51,7 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/todo', todosApiRoutes);
 app.use('/login', loginApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/register', register);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

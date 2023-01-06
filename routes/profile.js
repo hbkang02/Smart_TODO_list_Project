@@ -10,26 +10,26 @@ router.get("/", (req, res) => {
   if (!userId) {
     return res.redirect("/login");
   }
-  return getUserWithId(req.session.userId).then((user) => {
-    let templateVars = {
-      userId: req.session.userId,
-      user: user,
-    };
-    res.render("profile", templateVars);
-  });
+  return getUserWithId(req.session.userId)
+    .then((user) => {
+      let templateVars = {
+        userId: req.session.userId,
+        user: user,
+      };
+      res.render("profile", templateVars);
+    });
 });
 
 router.post("/", (req, res) => {
   const userId = req.session.userId;
   const email = req.body.email;
   const password = bcrypt.hashSync(req.body.password, 12);
-  const name = req.body.name;
+  const name = req.body.update_name;
   if (name === "" || email === "" || req.body.password === "") {
     res.sendStatus(400);
   }
   const update = { name, email, password };
   updateUserInfo(update, userId).then(() => {
-    console.log("nice")
     res.redirect("/");
   });
 });

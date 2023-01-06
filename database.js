@@ -3,7 +3,10 @@ const db = require('./db/connection');
 
 const getUserWithEmail = function (email) {
   return db
-    .query(`SELECT * FROM users WHERE email = $1`, [email])
+    .query(`
+    SELECT * FROM users
+    WHERE email = $1`, [
+      email])
     .then((result) => {
       return result.rows[0];
     })
@@ -16,7 +19,9 @@ exports.getUserWithEmail = getUserWithEmail;
 const getUserWithId = function (id) {
   return db
     .query(`
-    SELECT * FROM users WHERE id = $1`, [id])
+    SELECT * FROM users
+    WHERE id = $1`, [
+      id])
     .then((result) => {
       return result.rows[0];
     })
@@ -28,7 +33,6 @@ exports.getUserWithId = getUserWithId;
 
 //may need join********************
 const addTodo = function (todo) {
-  console.log("cat: " + todo.category_id + " type: " + typeof(todo.category_id));
   db.query(`
   INSERT INTO todos (
     category_id,
@@ -51,10 +55,12 @@ exports.addTodo = addTodo;
 
 const getTodo = function (userId) {
   return db.query(`
-  SELECT * from todos WHERE user_id = $1;`, [userId])
-  .then(res => {
-    return res.rows;
-  })
+    SELECT * FROM todos
+    WHERE user_id = $1;`, [
+    userId])
+    .then(res => {
+      return res.rows;
+    })
 };
 
 exports.getTodo = getTodo;
@@ -64,9 +70,14 @@ const addUser = function (user) {
   const password = user.password
   const email = user.email
   return db
-    .query(`INSERT INTO users (name, password, email) VALUES ($1, $2, $3) RETURNING *;`, [name, password, email])
+    .query(`
+    INSERT INTO users (name, password, email)
+    VALUES ($1, $2, $3)
+    RETURNING *;`,
+      [name,
+        password,
+        email])
     .then((result) => {
-      console.log('users', result.rows[0]);
       return result.rows[0];
     })
     .catch((err) => {
@@ -91,14 +102,13 @@ const updateUserInfo = function (update, userId) {
       password,
       email,
       userId])
-      .then((result) => {
-        console.log('users', result.rows[0]);
-        return result.rows[0];
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 
 exports.updateUserInfo = updateUserInfo;

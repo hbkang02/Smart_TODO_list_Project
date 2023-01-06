@@ -36,10 +36,8 @@ router.post('/', (req, res) => {
         res.redirect('/login');
         return;
       }
-      console.log("found user: " + user.name)
       req.session.userId = user.id;
-      console.log("session: " + req.session.userId);
-      res.redirect('/');
+      res.redirect('/');ßßß
       return;
     })
     .catch(e => res.send(e));

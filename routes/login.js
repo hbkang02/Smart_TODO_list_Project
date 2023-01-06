@@ -23,15 +23,12 @@ function login(email, password) {
       return null;
     });
 }
-
 router.get('/', (req, res) => {
   let templateVars = {
     userId: req.session.email,
   };
   res.render('login', templateVars);
 });
-
-module.exports = router;
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;

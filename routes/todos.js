@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
   if (!userId) {
     res.redirect('/');
     // res.send('Not logged in!!');
-    return; //add redirect later
+    return;
   }
   if (!req.body.category_id) {
     fetchCategory(req.body.todo_name)

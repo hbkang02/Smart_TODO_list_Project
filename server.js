@@ -118,7 +118,7 @@ app.get("/", (req, res) => {
 app.post("/logout", (request, response) => {
   request.session.userId = null;
   request.session = null;
-  response.redirect("/");
+  response.redirect("/login");
 });
 
 app.listen(PORT, () => {

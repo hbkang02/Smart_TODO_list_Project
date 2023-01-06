@@ -74,3 +74,32 @@ const addUser = function (user) {
     });
 };
 exports.addUser = addUser;
+
+const updateUserInfo = function (update, userId) {
+  const name = update.name
+  const password = update.password
+  const email = update.email
+  return db
+    .query(`
+    UPDATE users SET(
+      name = $1,
+      password = $2,
+      email = $3
+    WHERE id = $4
+    );`[
+      name,
+      password,
+      email,
+      userId])
+      .then((result) => {
+        console.log('users', result.rows[0]);
+        return result.rows[0];
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+
+exports.updateUserInfo = updateUserInfo;
+

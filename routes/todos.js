@@ -111,6 +111,7 @@ router.get('/cancel', (req, res) => {
   res.redirect('/');
 });
 
+
 const updateDatabase = function (todo_name, category, todoId) {
   return db.query(`
 UPDATE todos
@@ -122,5 +123,6 @@ WHERE id = $3;`,
     todoId
   ]);
 };
+
 
 module.exports = router;

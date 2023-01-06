@@ -31,7 +31,8 @@ router.get("/", (req, res) => {
 
 });
 
-router.post("/", (req, res) => {
+
+router.post('/', (req, res) => {
   const userId = req.session.userId;
   console.log("session2: " + req.session.userId);
   if (!userId) {
@@ -60,8 +61,12 @@ router.post("/", (req, res) => {
       return;
     })
   }
+  res.send('Cannot bring todos' + error);
+});
 
-  //res.send('Something went wrong')
-})
 
+router.delete('/:todoId', (req, res) => {
+  const userId = req.session.userId
+  
+});
 module.exports = router;

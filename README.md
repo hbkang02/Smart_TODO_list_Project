@@ -1,4 +1,4 @@
-#####LHL MIDTERM: Smart to-do list
+LHL MIDTERM: Smart to-do list
 =========
 
 ## Project Setup

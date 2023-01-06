@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 const sass = require("sass");
 const app = express();
-const { getUserWithId } = require("./database");
+const { getUserWithId, getTodo } = require("./database");
 
 app.set("view engine", "ejs");
 

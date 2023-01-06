@@ -5,11 +5,65 @@
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
+}
 
-  .editor {
-    color: white;
-    background: rgb(25 32 63);
-    padding: 30px 30px 80px;
-    align-self: center;
-  }
+.editor {
+  color: #ffa500;
+  background: rgb(25 32 63);
+  padding: 30px 30px 80px;
+  align-self: center;
+  font-size: larger;
+  font-family: math;
+}
+
+.category-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editor-button {
+  display: flex;
+}
+
+.button {
+  background-color: #ffa500;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 15px;
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #ffa500;
+  color: rgb(25, 32, 63);
+  border: 2px solid #ffa500;
+}
+
+.button1:hover {
+  background-color: white;
+  color: rgb(25, 32, 63);
+}
+
+.button2 {
+  background-color: #ffa500;
+  color: rgb(25, 32, 63);
+  border: 2px solid #ffa500;
+}
+
+.button2:hover {
+  background-color: white;
+  color: rgb(25, 32, 63);
 }

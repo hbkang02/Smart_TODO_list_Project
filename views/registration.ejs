@@ -24,39 +24,39 @@
 <body>
   <%- include('partials/_header') %>
 
-  <main class="container">
+    <main class="container">
 
-    <h1 class="loginlabel">Create an account to get started!</h1>
-    <br>
-
-
-    <form method="POST" action="/register" class="login_form">
-      <div>
-        <label for="register-name" class="menulabels">Your Name:</label>
-        <br>
-        <input type="text" name="name">
-      </div>
+      <h1 class="loginlabel">Create an account to get started!</h1>
       <br>
-      <div>
-        <label for="email" class="menulabels">Email:</label>
-        <br>
-        <input type="email" name="email" class="logininput">
-      </div>
-      <br>
-      <div>
-        <label for="password" class="menulabels">Password:</label>
-        <br>
-        <input type="password" name="password" class="logininput">
-      </div>
-      <br>
-      <button type="submit" class="register-button">Create</button>
-    </form>
 
-    <p class="menulabels">
-      Have an account? <a href="/login">Click Here</a>
-    </p>
 
-  </main>
+      <form method="POST" action="/register" class="login_form">
+        <div>
+          <label for="register-name" class="menulabels">Your Name:</label>
+          <br>
+          <input type="text" name="name">
+        </div>
+        <br>
+        <div>
+          <label for="email" class="menulabels">Email:</label>
+          <br>
+          <input type="email" name="email" class="logininput">
+        </div>
+        <br>
+        <div>
+          <label for="password" class="menulabels">Password:</label>
+          <br>
+          <input type="password" name="password" class="logininput">
+        </div>
+        <br>
+        <button type="submit" class="register-button">Create</button>
+      </form>
+
+      <p class="menulabels">
+        Have an account? <a href="/login">Click Here</a>
+      </p>
+
+    </main>
 
 </body>
 

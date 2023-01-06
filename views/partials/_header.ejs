@@ -8,15 +8,15 @@
       <div class="nav-links">
         <a href="/login"><button>Login</button></a>
         <a href="/register"><button>Register</button></a>
-       </div>
+      </div>
       <% } else { %>
         <div class="right-side">
           <label>Hello <%= user.name %> !&nbsp</label>
           <a href="/profile"><button>Profile</button></a>
           <form method="POST" action="/logout">
             <a href="/"><button>Logout</button></a>
-        </form>
+          </form>
         </div>
-      <% } %>
+        <% } %>
   </nav>
 </header>

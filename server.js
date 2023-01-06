@@ -69,52 +69,52 @@ app.get("/", (req, res) => {
     return res.redirect("/register");
   }
   return getUserWithId(req.session.userId)
-  .then ((user) => {
-    // Get items
-    getTodo(req.session.userId)
-    .then(todoRes => {
-      const readItems = [];
-      const watchItems = [];
-      const buyItems = [];
-      const eatItems = [];
+    .then((user) => {
+      // Get items
+      getTodo(req.session.userId)
+        .then(todoRes => {
+          const readItems = [];
+          const watchItems = [];
+          const buyItems = [];
+          const eatItems = [];
 
-      const f = function (id, todo_name, created_date) {
-        return {
-          id,
-          todo_name,
-          created_date: new Date(Date.parse(created_date)).toDateString()
-        };
-      };
+          const f = function (id, todo_name, created_date) {
+            return {
+              id,
+              todo_name,
+              created_date: new Date(Date.parse(created_date)).toDateString()
+            };
+          };
 
-      todoRes.forEach(todo => {
-        switch(todo.category_id) {
-          case 1:
-            readItems.push(f(todo.id, todo.todo_name, todo.created_date));
-            break;
-          case 2:
-            watchItems.push(f(todo.id, todo.todo_name, todo.created_date));
-            break;
-          case 3:
-            eatItems.push(f(todo.id, todo.todo_name, todo.created_date));
-            break;
-          case 4:
-            buyItems.push(f(todo.id, todo.todo_name, todo.created_date));
-            break;
-        }
-      });
+          todoRes.forEach(todo => {
+            switch (todo.category_id) {
+              case 1:
+                readItems.push(f(todo.id, todo.todo_name, todo.created_date));
+                break;
+              case 2:
+                watchItems.push(f(todo.id, todo.todo_name, todo.created_date));
+                break;
+              case 3:
+                eatItems.push(f(todo.id, todo.todo_name, todo.created_date));
+                break;
+              case 4:
+                buyItems.push(f(todo.id, todo.todo_name, todo.created_date));
+                break;
+            }
+          });
 
-      let templateVars = {
-        userId: req.session.userId,
-        user,
-        readItems,
-        watchItems,
-        buyItems,
-        eatItems,
-        editItemId: req.session.todoId
-      };
-      res.render("index", templateVars);
+          let templateVars = {
+            userId: req.session.userId,
+            user,
+            readItems,
+            watchItems,
+            buyItems,
+            eatItems,
+            editItemId: req.session.todoId
+          };
+          res.render("index", templateVars);
+        });
     });
-  });
 });
 
 

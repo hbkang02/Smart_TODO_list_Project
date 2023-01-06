@@ -1,6 +1,10 @@
 <div class="list-item" style="color: white">
-  <a class="todo"><%= item.todo_name %></a>
-  <a class="time"><%= item.created_date %></a>
+  <a class="todo">
+    <%= item.todo_name %>
+  </a>
+  <a class="time">
+    <%= item.created_date %>
+  </a>
 
   <div class="icons">
     <form method="POST" action="/todo/edit/<%= item.id %>">

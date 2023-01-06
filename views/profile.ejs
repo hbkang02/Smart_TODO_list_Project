@@ -24,39 +24,39 @@
 <body>
   <%- include('partials/_header') %>
 
-  <main class="container">
+    <main class="container">
 
-    <h1 class="loginlabel">Update profile</h1>
-    <br>
-
-
-    <form method="POST" action="/profile" class="update_form">
-      <div>
-        <label for="update-name" class="menulabels">Update Name:</label>
-        <br>
-        <input type="text" name="name">
-      </div>
+      <h1 class="loginlabel">Update profile</h1>
       <br>
-      <div>
-        <label for="email" class="menulabels">Update Email:</label>
-        <br>
-        <input type="email" name="email" class="update-input">
-      </div>
-      <br>
-      <div>
-        <label for="password" class="menulabels">Update Password:</label>
-        <br>
-        <input type="password" name="password" class="update-input">
-      </div>
-      <br>
-      <button type="submit" class="register-button">Update</button>
-    </form>
 
-    <p class="menulabels">
-       <a href="/">Cancel</a>
-    </p>
 
-  </main>
+      <form method="POST" action="/profile" class="update_form">
+        <div>
+          <label for="update-name" class="menulabels">Update Name:</label>
+          <br>
+          <input type="text" name="update_name">
+        </div>
+        <br>
+        <div>
+          <label for="email" class="menulabels">Update Email:</label>
+          <br>
+          <input type="email" name="email" class="update-input">
+        </div>
+        <br>
+        <div>
+          <label for="password" class="menulabels">Update Password:</label>
+          <br>
+          <input type="password" name="password" class="update-input">
+        </div>
+        <br>
+        <button type="submit" class="register-button">Update</button>
+      </form>
+
+      <p class="menulabels">
+        <a href="/">Cancel</a>
+      </p>
+
+    </main>
 
 </body>
 

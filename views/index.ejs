@@ -32,66 +32,66 @@
 <body>
   <%- include('partials/_header') %>
 
-  <% if (editItemId) { %>
-    <div class="editor-container">
-      <%- include('partials/_editor', {editItemId: editItemId}); %>
-    </div>
-  <% } %>
-
-    <!-- add item form -->
-    <div class="add-item">
-      <h2>Add a new ToDo!</h2>
-      <form class="item" action="/todo" method="POST">
-        <div class="form-group">
-          <input autocomplete='off' class="form-control" type="text" name="todo_name">
-          <button type="submit" class="btn btn-primary fas fa-plus"></button>
-        </div>
-      </form>
-    </div>
-
-    <!-- list cards -->
-    <div class="list-container">
-      <!-- <div class="card-deck categories"> -->
-
-      <!-- to read list column -->
-      <div class="card read-list">
-        <h5 class="card-header" id="read-header">To Read</h5>
-        <div class="card-block" id="read-block">
-            <% readItems.forEach(function(item){ %>
-              <%- include('partials/_item', {item: item}); %>
-                <% }); %>
-        </div>
+    <% if (editItemId) { %>
+      <div class="editor-container">
+        <%- include('partials/_editor', {editItemId: editItemId}); %>
       </div>
+      <% } %>
 
-      <!-- to watch list column -->
-      <div class="card watch-list">
-        <h5 class="card-header" id="watch-header">To Watch</h5>
-        <div class="card-block" id="watch-block">
-            <% watchItems.forEach(function(item){ %>
-              <%- include('partials/_item', {item: item}); %>
-                <% }); %>
+        <!-- add item form -->
+        <div class="add-item">
+          <h2>Add a new ToDo!</h2>
+          <form class="item" action="/todo" method="POST">
+            <div class="form-group">
+              <input autocomplete='off' class="form-control" type="text" name="todo_name">
+              <button type="submit" class="btn btn-primary fas fa-plus"></button>
+            </div>
+          </form>
         </div>
-      </div>
 
-      <!-- to buy list column -->
-      <div class="card buy-list">
-        <h5 class="card-header" id="buy-header">To Buy</h5>
-        <div class="card-block" id="buy-block">
-            <% buyItems.forEach(function(item){ %>
-              <%- include('partials/_item', {item: item}); %>
-                <% }); %>
-        </div>
-      </div>
+        <!-- list cards -->
+        <div class="list-container">
+          <!-- <div class="card-deck categories"> -->
 
-      <!-- to eat list column -->
-      <div class="card eat-list">
-        <h5 class="card-header" id="eat-header">To Eat</h5>
-        <div class="card-block" id="eat-block">
-            <% eatItems.forEach(function(item){ %>
-              <%- include('partials/_item', {item: item}); %>
-                <% }); %>
-        </div>
-        <!-- </div> -->
+          <!-- to read list column -->
+          <div class="card read-list">
+            <h5 class="card-header" id="read-header">To Read</h5>
+            <div class="card-block" id="read-block">
+              <% readItems.forEach(function(item){ %>
+                <%- include('partials/_item', {item: item}); %>
+                  <% }); %>
+            </div>
+          </div>
+
+          <!-- to watch list column -->
+          <div class="card watch-list">
+            <h5 class="card-header" id="watch-header">To Watch</h5>
+            <div class="card-block" id="watch-block">
+              <% watchItems.forEach(function(item){ %>
+                <%- include('partials/_item', {item: item}); %>
+                  <% }); %>
+            </div>
+          </div>
+
+          <!-- to buy list column -->
+          <div class="card buy-list">
+            <h5 class="card-header" id="buy-header">To Buy</h5>
+            <div class="card-block" id="buy-block">
+              <% buyItems.forEach(function(item){ %>
+                <%- include('partials/_item', {item: item}); %>
+                  <% }); %>
+            </div>
+          </div>
+
+          <!-- to eat list column -->
+          <div class="card eat-list">
+            <h5 class="card-header" id="eat-header">To Eat</h5>
+            <div class="card-block" id="eat-block">
+              <% eatItems.forEach(function(item){ %>
+                <%- include('partials/_item', {item: item}); %>
+                  <% }); %>
+            </div>
+            <!-- </div> -->
 
 </body>
 

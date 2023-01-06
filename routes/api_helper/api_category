@@ -10,7 +10,7 @@ const fetchCategory = (text) => {
     'uri': `https://api.uclassify.com/v1/${username}/${classifierName}/classify`,
     'headers': {
       'Content-Type': 'application/json',
-      'Authorization': `Token ${process.env.DB_UCLASSIFY_READ_KEY}`, //your key
+      'Authorization': `Token CWELq0BOEcrS`, //your key
     },
     'body': {
       'texts': [text],
@@ -22,7 +22,7 @@ const fetchCategory = (text) => {
     .then((res) => {
       let result = {};
       let highp = 0;
-      for (let cat in res.classification) {
+      for (let cat of res[0].classification) {
         if (highp < cat.p) {
           result.className = cat.className;
           highp = cat.p;

@@ -1,16 +1,19 @@
-INSERT INTO todos (category_id, user_id, todo_name, created_date, completed_date)
+INSERT INTO todos (
+  category_id,
+  user_id,
+  todo_name
+)
 VALUES (
   1,
   1,
-  'Read Harry Potter',
-  now(),
-  NULL
+  'Read Harry Potter'
 );
-INSERT INTO todos (category_id, user_id, todo_name, created_date, completed_date)
+INSERT INTO todos (
+  category_id,
+  user_id,
+  todo_name)
 VALUES (
   2,
   1,
-  'Buy Apple watch',
-  now(),
-  NULL
+  'Buy Apple watch'
 );

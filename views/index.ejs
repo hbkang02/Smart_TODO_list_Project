@@ -39,11 +39,13 @@
 
   <!-- add item form -->
   <div class="add-item">
-    <span class="input-group p-2">
-      <input id="itemInput" class="form-control todo-item" placeholder="Add a ToDo!" name="item">
-      <button class="btn"><i class="fa-solid fa-plus"></i></button>
-    </span>
-  </div>
+    <h2>Add a new ToDo!</h2>
+    <form class="item" action="/todo" method="POST">
+      <div class="form-group">
+        <input autocomplete='off'  class="form-control" type="text" name="todo_name">
+        <button type="submit" class="btn btn-primary fas fa-plus"></button>
+      </div>
+    </form>
 
 <!-- list cards -->
 <div class="list-container">

@@ -21,8 +21,12 @@ CREATE TABLE categories (
 );`).then(() => {
   for (let [keys, values] of Object.entries(Categories)) {
     db.query(`
-  INSERT INTO categories ( id, category_name )
-    VALUES ($1, $2);
+  INSERT INTO categories (
+    id,
+    category_name )
+  VALUES (
+    $1,
+    $2);
     `, [keys, values])
     .catch((err) => {
       console.log("Catch: ", err.message);

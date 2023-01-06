@@ -81,7 +81,6 @@ router.post('/:todoId', (req, res) => {
 
 router.post('/edit/:todoId', (req, res) => {
   // req.session.todoId is null at start.
-  // console.log("todoid: " + req.session.todoId);
   if (!req.session.todoId || (req.session.todoId != req.params.todoId)) {
     req.session.todoId = req.params.todoId;
     return res.redirect('/');

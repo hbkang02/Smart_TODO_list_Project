@@ -45,7 +45,7 @@ So you would not have to manually assign categories for your tasks!
 
 ### PREVIEW Of the Project
 
-<img src="https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/register_login.gif?raw=true" width="1280" height="720")
+![](https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/register_login.gif?raw=true)
 REGISTER-LOGIN Function
 
 ![](https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/edit_delete.gif?raw=true)

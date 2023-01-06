@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
 const sass = require('sass');
 const app = express();
-const { getUserWithId } = require('./database')
+const { getUserWithId, getTodo } = require('./database')
 app.set('view engine', 'ejs');
 
 
@@ -65,12 +65,49 @@ app.get("/", (req, res) => {
   }
   return getUserWithId(req.session.userId)
   .then ((user) => {
-    let templateVars = {
-      userId: req.session.userId,
-      user: user
-    };
-    res.render("index", templateVars);
-  })
+    // Get items
+    getTodo(req.session.userId).then(todoRes => {
+      const readItems = [];
+      const watchItems = [];
+      const buyItems = [];
+      const eatItems = [];
+
+      const f = function (id, todo_name, created_date) {
+        return {
+          id,
+          todo_name,
+          created_date
+        };
+      };
+
+      todoRes.forEach(todo => {
+        switch(todo.category_id) {
+          case 1:
+            readItems.push(f(todo.id, todo.todo_name, todo.created_date));
+            break;
+          case 2:
+            watchItems.push(f(todo.id, todo.todo_name, todo.created_date));
+            break;
+          case 3:
+            eatItems.push(f(todo.id, todo.todo_name, todo.created_date));
+            break;
+          case 4:
+            buyItems.push(f(todo.id, todo.todo_name, todo.created_date));
+            break;
+        }
+      });
+
+      let templateVars = {
+        userId: req.session.userId,
+        user,
+        readItems,
+        watchItems,
+        buyItems,
+        eatItems
+      };
+      res.render("index", templateVars);
+    });
+  });
 });
 
 app.post("/logout", (request, response) => {

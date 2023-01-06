@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
           user_id: userId,
           todo_name: req.body.todo_name,
         })
-        res.send('TODO Created1');
+        res.redirect('/');
         return;
       })
   } else {
@@ -57,18 +57,29 @@ router.post('/', (req, res) => {
       user_id: userId,
       todo_name: req.body.todo_name,
     }).then(() => {
-      res.send('TODO Created2');
+      res.redirect('/');
       return;
     })
   }
-  res.send('Cannot bring todos' + error);
 });
 
 
-router.delete('/:todoId', (req, res) => {
-  const userId = req.session.userId
-  db.query(`
-  `
-  )
+router.post('/:todoId', (req, res) => {
+  const queryString = `
+  DELETE FROM todos
+  WHERE user_id = $1
+  AND id = $2;`;
+  const queryParams = [req.session.userId, req.params.todoId];
+
+  db.query(queryString, queryParams)
+  .then(data => {
+    console.log(data);
+    console.log('data deleted');
+    res.redirect('/');
+    return;
+  }).catch(err => {
+    res.send(err)
+  })
 });
+
 module.exports = router;

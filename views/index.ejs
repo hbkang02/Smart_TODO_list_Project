@@ -45,6 +45,9 @@
       <h5 class="card-header" id="read-header">To Read</h5>
       <div class="card-block" id="read-block">
         <ul class="list-group list-group-flush" id="read-items">
+          <% readItems.forEach(function(item){ %>
+            <%- include('partials/_item', {item: item}); %>
+          <% }); %>
         </ul>
       </div>
     </div>
@@ -54,6 +57,9 @@
       <h5 class="card-header" id="watch-header">To Watch</h5>
       <div class="card-block" id="watch-block">
         <ul class="list-group list-group-flush" id="watch-items">
+          <% watchItems.forEach(function(item){ %>
+            <%- include('partials/_item', {item: item}); %>
+          <% }); %>
         </ul>
       </div>
     </div>
@@ -63,6 +69,9 @@
       <h5 class="card-header" id="buy-header">To Buy</h5>
       <div class="card-block" id="buy-block">
         <ul class="list-group list-group-flush" id="buy-items">
+          <% buyItems.forEach(function(item){ %>
+            <%- include('partials/_item', {item: item}); %>
+          <% }); %>
         </ul>
       </div>
     </div>
@@ -72,6 +81,9 @@
       <h5 class="card-header" id="eat-header">To Eat</h5>
       <div class="card-block" id="eat-block">
         <ul class="list-group list-group-flush" id="eat-items">
+          <% eatItems.forEach(function(item){ %>
+            <%- include('partials/_item', {item: item}); %>
+          <% }); %>
         </ul>
       </div>
     <!-- </div> -->

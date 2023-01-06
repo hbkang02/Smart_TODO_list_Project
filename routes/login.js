@@ -23,7 +23,6 @@ function login(email, password) {
       return null;
     });
 }
-
 router.get('/', (req, res) => {
   let templateVars = {
     userId: req.session.email,

@@ -105,6 +105,7 @@ app.get("/", (req, res) => {
 
           let templateVars = {
             userId: req.session.userId,
+            userName: req.session.userName,
             user,
             readItems,
             watchItems,

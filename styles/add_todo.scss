@@ -1,5 +1,30 @@
-.add_todo {
+.add-item {
   display: flex;
-  padding-top: 30px;
-  width: 300px;
+  flex-direction: column;
+  align-items: center;
 }
+h2 {
+  color: white;
+};
+
+.form-group {
+
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-radius: 10px;
+
+  input, button {
+    background: var(--cardColor);
+    font-size: 1.5rem;
+    border: none;
+  }
+
+  button {
+    color: black;
+    background: var(--cardColor);
+    border-radius: 0 5px 5px 0;
+  }
+
+}
+

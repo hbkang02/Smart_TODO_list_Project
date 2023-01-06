@@ -31,9 +31,7 @@ router.get("/", (req, res) => {
 
 });
 
-
-
-
+// This adds todos
 router.post("/", (req, res) => {
   const userId = req.session.userId;
   console.log("session2: " + req.session.userId);

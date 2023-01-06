@@ -4,11 +4,16 @@
 <head>
   <title>Home Page</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://kit.fontawesome.com/c33116664a.js" crossorigin="anonymous"></script>
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
@@ -16,7 +21,9 @@
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/add_todo.css" />
   <link rel="stylesheet" href="/styles/list_cards.css" />
+  <link rel="stylesheet" href="/styles/editor.css" />
   <link rel="stylesheet" href="/styles/_items.css" />
+
 
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -26,68 +33,76 @@
 <body>
   <%- include('partials/_header') %>
 
-  <!-- add item form -->
-  <div class="add-item">
-    <h2>Add a new ToDo!</h2>
-    <form class="item" action="/todo" method="POST">
-      <div class="form-group">
-        <input autocomplete='off'  class="form-control" type="text" name="todo_name">
-        <button type="submit" class="btn btn-primary fas fa-plus"></button>
-      </div>
-    </form>
-  </div>
+  <% if (editItemId) { %>
+    <div class="editor-container">
+      <%- include('partials/_editor', {editItemId: editItemId}); %>
+    </div>
+  <% } %>
 
-<!-- list cards -->
-<div class="list-container">
-  <!-- <div class="card-deck categories"> -->
-
-    <!-- to read list column -->
-    <div class="card read-list">
-      <h5 class="card-header" id="read-header">To Read</h5>
-      <div class="card-block" id="read-block">
-        <ul class="list-group list-group-flush" id="read-items">
-          <% readItems.forEach(function(item){ %>
-            <%- include('partials/_item', {item: item}); %>
-          <% }); %>
-        </ul>
-      </div>
+    <!-- add item form -->
+    <div class="add-item">
+      <h2>Add a new ToDo!</h2>
+      <form class="item" action="/todo" method="POST">
+        <div class="form-group">
+          <input autocomplete='off' class="form-control" type="text" name="todo_name">
+          <button type="submit" class="btn btn-primary fas fa-plus"></button>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+      </form>
     </div>
 
-    <!-- to watch list column -->
-    <div class="card watch-list">
-      <h5 class="card-header" id="watch-header">To Watch</h5>
-      <div class="card-block" id="watch-block">
-        <ul class="list-group" id="watch-items">
-          <% watchItems.forEach(function(item){ %>
-            <%- include('partials/_item', {item: item}); %>
-          <% }); %>
-        </ul>
-      </div>
-    </div>
+    <!-- list cards -->
+    <div class="list-container">
+      <!-- <div class="card-deck categories"> -->
 
-    <!-- to buy list column -->
-    <div class="card buy-list">
-      <h5 class="card-header" id="buy-header">To Buy</h5>
-      <div class="card-block" id="buy-block">
-        <ul class="list-group list-group-flush" id="buy-items">
-          <% buyItems.forEach(function(item){ %>
-            <%- include('partials/_item', {item: item}); %>
-          <% }); %>
-        </ul>
+      <!-- to read list column -->
+      <div class="card read-list">
+        <h5 class="card-header" id="read-header">To Read</h5>
+        <div class="card-block" id="read-block">
+          <ul class="list-group list-group-flush" id="read-items">
+            <% readItems.forEach(function(item){ %>
+              <%- include('partials/_item', {item: item}); %>
+                <% }); %>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <!-- to eat list column -->
-    <div class="card eat-list">
-      <h5 class="card-header" id="eat-header">To Eat</h5>
-      <div class="card-block" id="eat-block">
-        <ul class="list-group list-group-flush" id="eat-items">
-          <% eatItems.forEach(function(item){ %>
-            <%- include('partials/_item', {item: item}); %>
-          <% }); %>
-        </ul>
+      <!-- to watch list column -->
+      <div class="card watch-list">
+        <h5 class="card-header" id="watch-header">To Watch</h5>
+        <div class="card-block" id="watch-block">
+          <ul class="list-group list-group-flush" id="watch-items">
+            <% watchItems.forEach(function(item){ %>
+              <%- include('partials/_item', {item: item}); %>
+                <% }); %>
+          </ul>
+        </div>
       </div>
-    <!-- </div> -->
+
+      <!-- to buy list column -->
+      <div class="card buy-list">
+        <h5 class="card-header" id="buy-header">To Buy</h5>
+        <div class="card-block" id="buy-block">
+          <ul class="list-group list-group-flush" id="buy-items">
+            <% buyItems.forEach(function(item){ %>
+              <%- include('partials/_item', {item: item}); %>
+                <% }); %>
+          </ul>
+        </div>
+      </div>
+
+      <!-- to eat list column -->
+      <div class="card eat-list">
+        <h5 class="card-header" id="eat-header">To Eat</h5>
+        <div class="card-block" id="eat-block">
+          <ul class="list-group list-group-flush" id="eat-items">
+            <% eatItems.forEach(function(item){ %>
+              <%- include('partials/_item', {item: item}); %>
+                <% }); %>
+          </ul>
+        </div>
+        <!-- </div> -->
 
 </body>
+
 </html>

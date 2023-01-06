@@ -63,15 +63,14 @@ app.use("/register", register);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  console.log(req.session.userId)
   if (!req.session.userId) {
-    console.log("hi")
     return res.redirect("/register");
   }
   return getUserWithId(req.session.userId)
   .then ((user) => {
     // Get items
-    getTodo(req.session.userId).then(todoRes => {
+    getTodo(req.session.userId)
+    .then(todoRes => {
       const readItems = [];
       const watchItems = [];
       const buyItems = [];
@@ -81,7 +80,7 @@ app.get("/", (req, res) => {
         return {
           id,
           todo_name,
-          created_date
+          created_date: new Date(Date.parse(created_date)).toDateString()
         };
       };
 
@@ -108,7 +107,8 @@ app.get("/", (req, res) => {
         readItems,
         watchItems,
         buyItems,
-        eatItems
+        eatItems,
+        editItemId: req.session.todoId
       };
       res.render("index", templateVars);
     });

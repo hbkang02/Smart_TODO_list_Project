@@ -67,6 +67,8 @@ router.post('/', (req, res) => {
 
 router.delete('/:todoId', (req, res) => {
   const userId = req.session.userId
-  
+  db.query(`
+  `
+  )
 });
 module.exports = router;

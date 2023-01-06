@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   <header>
     <nav>
       <div class="logo">
@@ -18,25 +17,4 @@
           </form>
         <% } %>
   </nav>
-=======
-<header>
-  <nav>
-    <div class="logo">
-      <h2><a href="/">Smart TODO List</a></h2>
-      <i class="fa-duotone fa-list-check"></i>
-    </div>
-    <% if (!userId) { %>
-      <div class="nav-links">
-        <a href="/login"><button>Login</button></a>
-        <a href="/register"><button>Register</button></a>
-       </div>
-      <% } else { %>
-        <form method="POST" action="/logout">
-          <div style = "position:absolute; right:15px;">
-          <label>Logged in as: <%= user.email %> &nbsp</label>
-          <a href="/"><button>Logout</button></a>
-        </form>
-      <% } %>
-</nav>
->>>>>>> master
 </header>

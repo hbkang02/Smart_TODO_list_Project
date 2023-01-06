@@ -90,6 +90,7 @@ router.post('/edit/:todoId', (req, res) => {
   if (!req.body.category_id) {
     fetchCategory(req.body.todo_name)
       .then((catRes) => {
+        console.log("cat: " + catRes.className);
         return updateDatabase(req.body.todo_name, catRes.className, req.session.todoId)
         .then((_) => {
           req.session.todoId = null;

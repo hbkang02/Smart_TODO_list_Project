@@ -37,7 +37,6 @@ router.post('/', (req, res) => {
   console.log("session2: " + req.session.userId);
   if (!userId) {
     res.redirect('/');
-    // res.send('Not logged in!!');
     return;
   }
   if (!req.body.category_id) {
@@ -72,15 +71,59 @@ router.post('/:todoId', (req, res) => {
   const queryParams = [req.session.userId, req.params.todoId];
 
   db.query(queryString, queryParams)
-  .then(data => {
-    console.log(data);
-    console.log('data deleted');
-    res.redirect('/');
-    return;
-  }).catch(err => {
-    res.send(err)
-  })
+    .then((_) => {
+      res.redirect('/');
+      return;
+    }).catch(err => {
+      res.send(err)
+    })
 });
+
+router.post('/edit/:todoId', (req, res) => {
+  // req.session.todoId is null at start.
+  // console.log("todoid: " + req.session.todoId);
+  if (!req.session.todoId || (req.session.todoId != req.params.todoId)) {
+    req.session.todoId = req.params.todoId;
+    return res.redirect('/');
+  }
+
+  if (!req.body.category_id) {
+    fetchCategory(req.body.todo_name)
+      .then((catRes) => {
+        console.log("cat: " + catRes.className);
+        return updateDatabase(req.body.todo_name, catRes.className, req.session.todoId)
+        .then((_) => {
+          req.session.todoId = null;
+          return res.redirect('/');
+        });
+      });
+  } else {
+    return updateDatabase(req.body.todo_name, Categories[req.body.category_id], req.session.todoId)
+    .then((_) => {
+      req.session.todoId = null;
+      res.redirect('/');
+      return;
+    });
+  }
+});
+
+router.get('/cancel', (req, res) => {
+  req.session.todoId = null;
+  res.redirect('/');
+});
+
+
+const updateDatabase = function (todo_name, category, todoId) {
+  return db.query(`
+UPDATE todos
+SET todo_name = $1, category_id= $2
+WHERE id = $3;`,
+  [
+    todo_name,
+    Object.keys(Categories).find(key => Categories[key] === category),
+    todoId
+  ]);
+};
 
 
 module.exports = router;

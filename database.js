@@ -45,7 +45,7 @@ const addTodo = function (todo) {
     .catch((err) => {
       console.log("Catch: ", err.message);
     });
-}
+};
 
 exports.addTodo = addTodo;
 
@@ -55,7 +55,7 @@ const getTodo = function (userId) {
   .then(res => {
     return res.rows;
   })
-}
+};
 
 exports.getTodo = getTodo;
 

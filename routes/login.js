@@ -30,8 +30,6 @@ router.get('/', (req, res) => {
   res.render('login', templateVars);
 });
 
-module.exports = router;
-
 router.post('/', (req, res) => {
   const { email, password } = req.body;
   login(email, password)

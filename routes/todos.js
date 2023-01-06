@@ -7,7 +7,7 @@ const { addTodo } = require('../database');
 const { Categories } = require('../configs');
 const { jar } = require('request-promise-native');
 
-const getUsersToDos = function(userId) {
+const getUsersToDos = function (userId) {
   const text = `
   SELECT * FROM todos
   WHERE user_id = $1`;
@@ -19,7 +19,7 @@ const getUsersToDos = function(userId) {
 };
 
 router.get("/", (req, res) => {
-  const userId = req.session.user_id;
+  const userId = req.session.userId;
   if (!userId) {
     res.send('Not logged in!');
     return;
@@ -40,19 +40,19 @@ router.post("/", (req, res) => {
   if (!userId) {
     res.redirect('/');
     // res.send('Not logged in!!');
-    return; //add redirect later
+    return;
   }
   if (!req.body.category_id) {
     fetchCategory(req.body.todo_name)
-    .then((catRes) => {
-      addTodo({
-        category_id: Object.keys(Categories).find(key => Categories[key] === catRes.className),
-        user_id: userId,
-        todo_name: req.body.todo_name,
+      .then((catRes) => {
+        addTodo({
+          category_id: Object.keys(Categories).find(key => Categories[key] === catRes.className),
+          user_id: userId,
+          todo_name: req.body.todo_name,
+        })
+        res.send('TODO Created');
+        return
       })
-      res.send('TODO Created');
-      return
-    })
   } else {
     addTodo({
       category_id: req.body.category_id,

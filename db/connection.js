@@ -19,11 +19,11 @@ CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   category_name VARCHAR(255) NOT NULL
 );`).then(() => {
-  for (let [k, v] of Object.entries(Categories)) {
+  for (let [keys, values] of Object.entries(Categories)) {
     db.query(`
   INSERT INTO categories ( id, category_name )
     VALUES ($1, $2);
-    `, [k, v])
+    `, [keys, values])
     .catch((err) => {
       console.log("Catch: ", err.message);
     });

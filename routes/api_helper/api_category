@@ -1,6 +1,6 @@
 const request = require('request-promise');
 
-
+// setup for uclassify used for categorizing todo_names
 const fetchCategory = (text) => {
   const username = 'hbk';
   const classifierName = 'lhlmidterm';

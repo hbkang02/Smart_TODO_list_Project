@@ -1,4 +1,4 @@
-LHL Node Skeleton
+#####LHL MIDTERM: Smart to-do list
 =========
 
 ## Project Setup
@@ -37,8 +37,37 @@ The following steps are only for _one_ of the group members to perform.
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 
-## Dependencies
+### Intro
 
-- Node 10.x or above
-- NPM 5.x or above
-- PG 6.x
+Our Smart to-do list website allows the users to insert, delete, edit their tasks.
+What's more is that it will automatically classify your tasks into a beautiful table! 
+So you would not have to manually assign categories for your tasks!
+
+### PREVIEW Of the Project
+
+<img src="https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/register_login.gif?raw=true" width="1280" height="720")
+REGISTER-LOGIN Function
+
+![](https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/edit_delete.gif?raw=true)
+EDIT-DELETE Function
+
+![](https://github.com/hbkang02/Smart_TODO_list_Project/blob/master/todo_list_gif/CREATE_CLASSIFY.gif?raw=true)
+CREAT-CLASSIFY Function
+
+### Dependencies
+
+- bcrypt 5.1.0
+- chalk 2.4.2
+- cookie-session 2.0.0
+- dotenv 2.0.0
+- ejs 2.6.2
+- express 4.17.1
+- morgan 1.9.1
+- pg 8.5.0
+- request 2.88.2
+- request-promise 4.2.6
+- request-promise-native 1.0.9
+- sass 1.57.1
+- nodemon 2.0.10
+
+

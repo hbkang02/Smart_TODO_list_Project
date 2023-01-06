@@ -31,8 +31,8 @@ router.get("/", (req, res) => {
 
 });
 
-// This adds todos
-router.post("/", (req, res) => {
+
+router.post('/', (req, res) => {
   const userId = req.session.userId;
   console.log("session2: " + req.session.userId);
   if (!userId) {
@@ -48,8 +48,8 @@ router.post("/", (req, res) => {
           user_id: userId,
           todo_name: req.body.todo_name,
         })
-        res.send('TODO Created');
-        return
+        res.redirect('/');
+        return;
       })
   } else {
     addTodo({
@@ -57,13 +57,30 @@ router.post("/", (req, res) => {
       user_id: userId,
       todo_name: req.body.todo_name,
     }).then(() => {
-      res.send('TODO Created');
+      res.redirect('/');
       return;
     })
   }
+});
 
-  res.send('Something went wrong')
-})
+
+router.post('/:todoId', (req, res) => {
+  const queryString = `
+  DELETE FROM todos
+  WHERE user_id = $1
+  AND id = $2;`;
+  const queryParams = [req.session.userId, req.params.todoId];
+
+  db.query(queryString, queryParams)
+  .then(data => {
+    console.log(data);
+    console.log('data deleted');
+    res.redirect('/');
+    return;
+  }).catch(err => {
+    res.send(err)
+  })
+});
 
 
 module.exports = router;

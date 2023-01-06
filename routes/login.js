@@ -11,10 +11,7 @@ function login(email, password) {
       if (!user) {
         return null;
       }
-      // if (bcrypt.compareSync(password, user.password)) {
-      //   return user;
-      // }
-      if (password === user.password) {
+      if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
       return null;
@@ -35,7 +32,7 @@ router.post('/', (req, res) => {
   login(email, password)
     .then(user => {
       if (!user || !password) {
-        res.status(400).send("You need to provide an email and password to login. Please <a href='/login'>Login</a>");
+        res.redirect('/login');
         return;
       }
       console.log("found user: " + user.name)

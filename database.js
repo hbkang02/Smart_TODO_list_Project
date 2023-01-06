@@ -49,6 +49,15 @@ const addTodo = function (todo) {
 
 exports.addTodo = addTodo;
 
+const getTodo = function (userId) {
+  return db.query(`
+  SELECT * from todos WHERE user_id = $1;`, [userId])
+  .then(res => {
+    return res.rows;
+  })
+}
+
+exports.getTodo = getTodo;
 
 const addUser = function (user) {
   const name = user.name

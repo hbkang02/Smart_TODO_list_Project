@@ -28,17 +28,16 @@ exports.getUserWithId = getUserWithId;
 
 //may need join********************
 const addTodo = function (todo) {
-  console.log("cat: " + todo.category_id + " type: " + typeof(todo.category_id));
   db.query(`
   INSERT INTO todos (
     category_id,
     user_id,
-    todo_name)
+    todo_name,
   VALUES (
-    $1,
-    $2,
-    $3
-  );`, [
+    '$1'
+    '$2'
+    '$3'
+  ))`, [
     todo.category_id,
     todo.user_id,
     todo.todo_name])

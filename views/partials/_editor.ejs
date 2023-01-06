@@ -1,0 +1,29 @@
+<div class="editor">
+  <!-- form use name -->
+  <form method="POST" action="/todo/edit/<%= editItemId %>" class="edit_form">
+    <div>
+      <label for="todo_name">TODO:</label>
+      <br>
+      <input type="text" name="todo_name">
+    </div>
+    <br>
+    <div>
+      <label for="category_id">Category:</label>
+      <br>
+      <input type="radio" id="read" name="category_id" value="1">
+      <label for="html">read</label><br>
+      <input type="radio" id="watch" name="category_id" value="2">
+      <label for="watch">watch</label><br>
+      <input type="radio" id="eat" name="category_id" value="3">
+      <label for="eat">eat</label>
+      <input type="radio" id="buy" name="category_id" value="4">
+      <label for="buy">buy</label>
+    </div>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <form method="GET" action="/todo/cancel" class="edit_form">
+    <button type="submit">Cancel</button>
+  </form>
+</div>

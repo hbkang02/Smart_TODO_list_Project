@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
 const sass = require('sass');
 const app = express();
+const { getUserWithId } = require('./database')
 app.set('view engine', 'ejs');
 
 
@@ -58,8 +59,24 @@ app.use('/register', register);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get("/", (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect('/register');
+  }
+  return getUserWithId(req.session.userId)
+  .then ((user) => {
+    let templateVars = {
+      userId: req.session.userId,
+      user: user
+    };
+    res.render("index", templateVars);
+  })
+});
+
+app.post("/logout", (request, response) => {
+  request.session.id = null;
+  request.session = null;
+  response.redirect("/");
 });
 
 app.listen(PORT, () => {

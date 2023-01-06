@@ -31,7 +31,6 @@ router.get("/", (req, res) => {
 
 });
 
-// This adds todos
 router.post("/", (req, res) => {
   const userId = req.session.userId;
   console.log("session2: " + req.session.userId);
@@ -48,8 +47,8 @@ router.post("/", (req, res) => {
           user_id: userId,
           todo_name: req.body.todo_name,
         })
-        res.send('TODO Created');
-        return
+        res.send('TODO Created1');
+        return;
       })
   } else {
     addTodo({
@@ -57,13 +56,12 @@ router.post("/", (req, res) => {
       user_id: userId,
       todo_name: req.body.todo_name,
     }).then(() => {
-      res.send('TODO Created');
+      res.send('TODO Created2');
       return;
     })
   }
 
-  res.send('Something went wrong')
+  //res.send('Something went wrong')
 })
-
 
 module.exports = router;

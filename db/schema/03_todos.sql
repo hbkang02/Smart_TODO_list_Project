@@ -5,6 +5,7 @@ CREATE TABLE todos (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   todo_name VARCHAR(255) NOT NULL,
   created_date TIMESTAMP NOT NULL DEFAULT NOW(),
-  completed_date TIMESTAMP,
   is_active BOOLEAN NOT NULL DEFAULT TRUE
-)
+);
+
+  -- completed_date TIMESTAMP NULL DEFAULT NULL,

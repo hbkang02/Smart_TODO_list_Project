@@ -19,7 +19,7 @@ const getUsersToDos = function (userId) {
 };
 
 router.get("/", (req, res) => {
-  const userId = req.session.userIdid;
+  const userId = req.session.userId;
   if (!userId) {
     res.send('Not logged in!');
     return;

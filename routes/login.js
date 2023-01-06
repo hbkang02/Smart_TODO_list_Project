@@ -23,9 +23,11 @@ function login(email, password) {
       return null;
     });
 }
-
 router.get('/', (req, res) => {
-  res.render('login');
+  let templateVars = {
+    userId: req.session.email,
+  };
+  res.render('login', templateVars);
 });
 
 module.exports = router;

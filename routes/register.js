@@ -9,7 +9,10 @@ const bcrypt = require('bcrypt');
 const { getUserWithEmail } = require('../database')
 
 router.get('/', (req, res) => {
-  res.render('registration');
+  let templateVars = {
+    userId: req.session.email,
+  };
+  res.render('registration', templateVars);
 });
 
 router.post("/", (req, res) => {

@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/add_todo.css" />
   <link rel="stylesheet" href="/styles/list_cards.css" />
+  <link rel="stylesheet" href="/styles/editor.css" />
 
 
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -44,7 +45,6 @@
         <div class="form-group">
           <input autocomplete='off' class="form-control" type="text" name="todo_name">
           <button type="submit" class="btn btn-primary fas fa-plus"></button>
-          <i class="fa-solid fa-plus"></i>
         </div>
       </form>
     </div>
@@ -57,11 +57,9 @@
       <div class="card read-list">
         <h5 class="card-header" id="read-header">To Read</h5>
         <div class="card-block" id="read-block">
-          <ul class="list-group list-group-flush" id="read-items">
             <% readItems.forEach(function(item){ %>
               <%- include('partials/_item', {item: item}); %>
                 <% }); %>
-          </ul>
         </div>
       </div>
 
@@ -69,11 +67,9 @@
       <div class="card watch-list">
         <h5 class="card-header" id="watch-header">To Watch</h5>
         <div class="card-block" id="watch-block">
-          <ul class="list-group list-group-flush" id="watch-items">
             <% watchItems.forEach(function(item){ %>
               <%- include('partials/_item', {item: item}); %>
                 <% }); %>
-          </ul>
         </div>
       </div>
 
@@ -81,11 +77,9 @@
       <div class="card buy-list">
         <h5 class="card-header" id="buy-header">To Buy</h5>
         <div class="card-block" id="buy-block">
-          <ul class="list-group list-group-flush" id="buy-items">
             <% buyItems.forEach(function(item){ %>
               <%- include('partials/_item', {item: item}); %>
                 <% }); %>
-          </ul>
         </div>
       </div>
 
@@ -93,11 +87,9 @@
       <div class="card eat-list">
         <h5 class="card-header" id="eat-header">To Eat</h5>
         <div class="card-block" id="eat-block">
-          <ul class="list-group list-group-flush" id="eat-items">
             <% eatItems.forEach(function(item){ %>
               <%- include('partials/_item', {item: item}); %>
                 <% }); %>
-          </ul>
         </div>
         <!-- </div> -->
 

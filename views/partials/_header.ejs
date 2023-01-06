@@ -10,10 +10,13 @@
         <a href="/register"><button>Register</button></a>
        </div>
       <% } else { %>
-      <form method="POST" action="/logout">
-        <label>Logged in as: <%= user.email %> &nbsp</label>
-        <a href="/"><button>Logout</button></a>
-      </form>
+        <div class="right-side">
+          <label>Hello <%= user.name %> !&nbsp</label>
+          <a href="/profile"><button>Profile</button></a>
+          <form method="POST" action="/logout">
+            <a href="/"><button>Logout</button></a>
+        </form>
+        </div>
       <% } %>
   </nav>
 </header>

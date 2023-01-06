@@ -1,9 +1,9 @@
 
 <div class="list-item" style="color:white;">
-  <%= item.id %>
+  <!-- <%= item.id %> -->
   <%= item.todo_name %>
-  <%= item.created_date %>
+  <!-- <%= item.created_date %> -->
   <form method="POST" action="/todo/<%= item.id %>">
-    <button type="submit">DELETE</button>
+    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
   </form>
 </div>

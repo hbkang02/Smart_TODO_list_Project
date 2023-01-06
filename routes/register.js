@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     getUserWithEmail(email)
       .then((user) => {
         if (user) {
-          res.redirect("/");
+          res.redirect("/login");
         } else {
           let user = { name, email, password };
           req.session.userId = user.id;

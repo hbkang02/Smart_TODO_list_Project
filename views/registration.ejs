@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <!-- <link rel="stylesheet" href="/styles/header.css" /> -->
-  <link rel="stylesheet" href="/styles/login.css">
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/login_register.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -21,23 +21,40 @@
 </head>
 
 <body>
-  <!-- <%- include('partials/_header') %> -->
+  <%- include('partials/_header') %>
 
   <main class="container">
 
     <h1 class="loginlabel">Create an account</h1>
     <br>
-    <form class="form-inline" action="/register" method="POST">
-      <div class="form-group mb-2">
-        <label for="email">email</label>
-        <input class="form-control" type="email" name="email">
-        <label for="name">name</label>
-        <input class="form-control" type="name" name="name">
-        <label for="password">password</label>
-        <input class="form-control" type="password" name="password">
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    <form method="POST" action="/register" class="login_form">
+      <div>
+        <label for="register-name" class="menulabels">Your Name:</label>
+        <br>
+        <input type="text" name="name">
       </div>
+      <br>
+      <div>
+        <label for="email" class="menulabels">Email:</label>
+        <br>
+        <input type="email" name="email" class="logininput">
+      </div>
+      <br>
+      <div>
+        <label for="password" class="menulabels">Password:</label>
+        <br>
+        <input type="password" name="password" class="logininput">
+      </div>
+      <br>
+      <button type="submit" class="register-button">Create</button>
     </form>
+
+    <p class="menulabels">
+      Have an account? <a href="/login">Click Here</a>
+    </p>
+
   </main>
 
 </body>

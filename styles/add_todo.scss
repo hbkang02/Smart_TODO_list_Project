@@ -2,7 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 25px;
 }
+
+.input-group {
+  height: 10px;
+}
+
 h2 {
   color: white;
 };

@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
-  <script src="https://kit.fontawesome.com/528841148f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
@@ -23,22 +24,32 @@
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <header>
+    <nav>
+      <span>Smart TODO List</span>
+      <div class="login-container">
+        <form action="/login">
+          <input type="text" placeholder="Username" name="username">
+          <input type="password" placeholder="Password" name="psw">
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+  </header>
 
   <!-- add item form -->
   <div class="add-item">
     <h2>Add a new ToDo!</h2>
-    <form class="item" action="/items/" method="POST">
+    <form class="item" action="/todo" method="POST">
       <div class="form-group">
-        <input autocomplete='off'  class="form-control" type="text" name="item">
+        <input autocomplete='off'  class="form-control" type="text" name="todo_name">
         <button type="submit" class="btn btn-primary fas fa-plus"></button>
       </div>
     </form>
-  </div>
 
 <!-- list cards -->
 <div class="list-container">
-  <!-- <div class="card-deck categories"> -->
+  <div class="card-deck categories">
 
     <!-- to read list column -->
     <div class="card read-list">
@@ -74,7 +85,7 @@
         <ul class="list-group list-group-flush" id="eat-items">
         </ul>
       </div>
-    <!-- </div> -->
+    </div>
 
 </body>
 </html>

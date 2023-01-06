@@ -36,17 +36,19 @@ nav {
   }
 }
 
-.logo {
-  width: 18%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 20px;
-  color: white;
+nav span {
+  font-size: 30px;
+}
 
-  i {
-    font-size: 30;
-  }
+
+/* Style the input field inside the navbar */
+.nav input {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width: 100px;
+  font-size: 20px;
 }
 
 button {
@@ -54,4 +56,35 @@ button {
   color: white;
   border: black;
   background-color: black;
+  z-index: 1;
+}
+
+nav span {
+  font-size: 30px;
+}
+
+
+/* Style the input field inside the navbar */
+.nav input {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width: 100px;
+  font-size: 20px;
+}
+
+.nav .login-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container {
+  float: right;
 }

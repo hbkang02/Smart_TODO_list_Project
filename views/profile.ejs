@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>register</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/c33116664a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/login_register.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+
+  <main class="container">
+
+    <h1 class="loginlabel">Update profile</h1>
+    <br>
+
+
+    <form method="POST" action="/profile" class="update_form">
+      <div>
+        <label for="update-name" class="menulabels">Update Name:</label>
+        <br>
+        <input type="text" name="name">
+      </div>
+      <br>
+      <div>
+        <label for="email" class="menulabels">Update Email:</label>
+        <br>
+        <input type="email" name="email" class="update-input">
+      </div>
+      <br>
+      <div>
+        <label for="password" class="menulabels">Update Password:</label>
+        <br>
+        <input type="password" name="password" class="update-input">
+      </div>
+      <br>
+      <button type="submit" class="register-button">Update</button>
+    </form>
+
+    <p class="menulabels">
+       <a href="/">Cancel</a>
+    </p>
+
+  </main>
+
+</body>
+
+</html>

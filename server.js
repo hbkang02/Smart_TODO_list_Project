@@ -44,6 +44,7 @@ const widgetApiRoutes = require("./routes/widgets-api");
 const loginApiRoutes = require("./routes/login");
 const todosApiRoutes = require("./routes/todos");
 const usersRoutes = require("./routes/users");
+const profileRoutes = require("./routes/profile");
 const register = require("./routes/register");
 
 // Mount all resource routes
@@ -55,6 +56,7 @@ app.use("/api/widgets", widgetApiRoutes);
 app.use("/todo", todosApiRoutes);
 app.use("/login", loginApiRoutes);
 app.use("/users", usersRoutes);
+app.use("/profile", profileRoutes);
 app.use("/register", register);
 // Note: mount other resources here, using the same pattern above
 
@@ -114,6 +116,8 @@ app.get("/", (req, res) => {
     });
   });
 });
+
+
 
 app.post("/logout", (request, response) => {
   request.session.userId = null;

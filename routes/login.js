@@ -11,10 +11,7 @@ function login(email, password) {
       if (!user) {
         return null;
       }
-      // if (bcrypt.compareSync(password, user.password)) {
-      //   return user;
-      // }
-      if (password === user.password) {
+      if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
       return null;

@@ -64,6 +64,20 @@ router.post("/", (req, res) => {
 
   res.send('Something went wrong')
 })
-
+//deletes if logged in
+router.post("/delete", (req, res) => {
+  const user = req.session.user_id;
+  const id = req.params.id;
+  // if (!user) {
+  //   res.status(404).send('account does not exist or is not logged in');
+  // } else if (!urlDatabase[id]) {
+  //   res.status(404).send('link not found');
+  // } else if (user !== urlDatabase[id].userId) {
+  //   res.status(404).send('no access allowed');
+  // } else {
+  console.log('big success')
+  res.redirect("/");
+  //}
+});
 
 module.exports = router;

@@ -1,29 +1,31 @@
 <div class="editor">
   <!-- form use name -->
   <form method="POST" action="/todo/edit/<%= editItemId %>" class="edit_form">
-    <div>
-      <label for="todo_name">To-do:</label>
+    <div class="todo-container">
+      <label for="todo_name" style="font-size: 30px">To-do:</label>
       <br>
-      <input type="text" name="todo_name">
+      <input type="text" name="todo_name" placeholder="your tasks...">
     </div>
     <br>
-    <div>
-      <label for="category_id">Category:</label>
+    <div class="category-container">
+      <label for="category_id" align="left">Category:</label>
       <br>
       <input type="radio" id="read" name="category_id" value="1">
       <label for="html">read</label><br>
       <input type="radio" id="watch" name="category_id" value="2">
       <label for="watch">watch</label><br>
       <input type="radio" id="eat" name="category_id" value="3">
-      <label for="eat">eat</label>
+      <label for="eat">eat</label><br>
       <input type="radio" id="buy" name="category_id" value="4">
       <label for="buy">buy</label>
     </div>
     <br>
-    <button type="submit">Submit</button>
+    <div class="editor-button">
+    <button type="submit" class="button button1">Submit</button>
   </form>
 
-  <form method="GET" action="/todo/cancel" class="edit_form">
-    <button type="submit">Cancel</button>
+  <form method="GET" action="/todo/cancel">
+    <button type="submit" class="button button2">Cancel</button>
   </form>
+</div>
 </div>
